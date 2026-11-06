@@ -1,0 +1,3 @@
+# Personal use for now: keep the site out of search engines.
+User-agent: *
+Disallow: /

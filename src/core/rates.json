@@ -1,0 +1,231 @@
+{
+  "checked": "2026-11-06",
+  "sources": {
+    "grest": {
+      "title": "Deutsches Notarinstitut: Aktuelle Grunderwerbsteuersätze",
+      "url": "https://www.dnoti.de/fileadmin/user_upload/Arbeitshilfen/Steuerrecht/Aktuelle_Grunderwerbsteuersaetze_Stand_28_01_2026.pdf",
+      "asOf": "2026-01-28"
+    },
+    "notary": {
+      "title": "GNotKG und Grundbuchgebühren sind bundeseinheitlich; Notar ≈ 1–1,5 %, Grundbuch ≈ 0,5 % des Kaufpreises; angesetzt 2 % (oberer Faustwert)",
+      "url": "https://www.gesetze-im-internet.de/gnotkg/",
+      "asOf": "2026-11-06"
+    },
+    "broker": {
+      "title": "Baufi24: Maklerprovision nach Bundesländern (übliche Gesamtprovision inkl. MwSt., Käuferanteil bei Teilung nach § 656c BGB)",
+      "url": "https://www.baufi24.de/immobilien/maklerprovision-in-deutschland-mit-uebersicht-nach-bundeslaendern/",
+      "asOf": "2026-04-28"
+    }
+  },
+  "states": [
+    {
+      "code": "BW",
+      "name": {
+        "de": "Baden-Württemberg",
+        "en": "Baden-Württemberg",
+        "ru": "Баден-Вюртемберг"
+      },
+      "grestPct": 5.0,
+      "grestSince": "2011-11-05",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "BY",
+      "name": {
+        "de": "Bayern",
+        "en": "Bavaria",
+        "ru": "Бавария"
+      },
+      "grestPct": 3.5,
+      "grestSince": "1998-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "BE",
+      "name": {
+        "de": "Berlin",
+        "en": "Berlin",
+        "ru": "Берлин"
+      },
+      "grestPct": 6.0,
+      "grestSince": "2014-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "BB",
+      "name": {
+        "de": "Brandenburg",
+        "en": "Brandenburg",
+        "ru": "Бранденбург"
+      },
+      "grestPct": 6.5,
+      "grestSince": "2015-07-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "HB",
+      "name": {
+        "de": "Bremen",
+        "en": "Bremen",
+        "ru": "Бремен"
+      },
+      "grestPct": 5.5,
+      "grestSince": "2025-07-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 5.95,
+      "brokerBuyerPct": 2.98
+    },
+    {
+      "code": "HH",
+      "name": {
+        "de": "Hamburg",
+        "en": "Hamburg",
+        "ru": "Гамбург"
+      },
+      "grestPct": 5.5,
+      "grestSince": "2023-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 6.25,
+      "brokerBuyerPct": 3.12
+    },
+    {
+      "code": "HE",
+      "name": {
+        "de": "Hessen",
+        "en": "Hesse",
+        "ru": "Гессен"
+      },
+      "grestPct": 6.0,
+      "grestSince": "2014-08-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 5.95,
+      "brokerBuyerPct": 2.98
+    },
+    {
+      "code": "MV",
+      "name": {
+        "de": "Mecklenburg-Vorpommern",
+        "en": "Mecklenburg-Western Pomerania",
+        "ru": "Мекленбург — Передняя Померания"
+      },
+      "grestPct": 6.0,
+      "grestSince": "2019-07-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 5.95,
+      "brokerBuyerPct": 2.98
+    },
+    {
+      "code": "NI",
+      "name": {
+        "de": "Niedersachsen",
+        "en": "Lower Saxony",
+        "ru": "Нижняя Саксония"
+      },
+      "grestPct": 5.0,
+      "grestSince": "2014-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57,
+      "brokerNote": "Regional unterschiedlich: Region A 7,14 % gesamt (Käufer 3,57 %), Region B 4,76–5,95 % gesamt (Käufer 2,38–2,98 %). Hier der höhere Wert."
+    },
+    {
+      "code": "NW",
+      "name": {
+        "de": "Nordrhein-Westfalen",
+        "en": "North Rhine-Westphalia",
+        "ru": "Северный Рейн — Вестфалия"
+      },
+      "grestPct": 6.5,
+      "grestSince": "2015-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "RP",
+      "name": {
+        "de": "Rheinland-Pfalz",
+        "en": "Rhineland-Palatinate",
+        "ru": "Рейнланд-Пфальц"
+      },
+      "grestPct": 5.0,
+      "grestSince": "2012-03-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "SL",
+      "name": {
+        "de": "Saarland",
+        "en": "Saarland",
+        "ru": "Саар"
+      },
+      "grestPct": 6.5,
+      "grestSince": "2015-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "SN",
+      "name": {
+        "de": "Sachsen",
+        "en": "Saxony",
+        "ru": "Саксония"
+      },
+      "grestPct": 5.5,
+      "grestSince": "2023-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "ST",
+      "name": {
+        "de": "Sachsen-Anhalt",
+        "en": "Saxony-Anhalt",
+        "ru": "Саксония-Анхальт"
+      },
+      "grestPct": 5.0,
+      "grestSince": "2012-03-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "SH",
+      "name": {
+        "de": "Schleswig-Holstein",
+        "en": "Schleswig-Holstein",
+        "ru": "Шлезвиг-Гольштейн"
+      },
+      "grestPct": 6.5,
+      "grestSince": "2014-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    },
+    {
+      "code": "TH",
+      "name": {
+        "de": "Thüringen",
+        "en": "Thuringia",
+        "ru": "Тюрингия"
+      },
+      "grestPct": 5.0,
+      "grestSince": "2024-01-01",
+      "notaryPct": 2.0,
+      "brokerTotalPct": 7.14,
+      "brokerBuyerPct": 3.57
+    }
+  ]
+}

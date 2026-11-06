@@ -1,0 +1,32 @@
+---
+// Page shell. Fonts are bundled from npm (@fontsource-variable) and served from our own
+// domain: no requests to fonts.googleapis.com or any other third party.
+import "@fontsource-variable/golos-text";
+import "@fontsource-variable/unbounded";
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+import type { Lang } from "../core/rates";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+}
+const { lang, title, description } = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="theme-color" content="#f3f6f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101513" media="(prefers-color-scheme: dark)" />
+  </head>
+  <body>
+    <div class="wrap">
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+// German start page with the calculator. Language routes and state pages: TASK-28.3.
+import Base from "../layouts/Base.astro";
+import Calculator from "../components/Calculator";
+---
+<Base
+  lang="de"
+  title="Kapstart · Für welches Haus reicht mein Eigenkapital?"
+  description="Kaufnebenkosten-Rechner für alle 16 Bundesländer: Bis zu welchem Kaufpreis deckt dein Eigenkapital Grunderwerbsteuer, Notar und Makler bei 100 % Finanzierung?"
+>
+  <header class="site">
+    <div>
+      <div class="eyebrow">100 % Finanzierung · Kaufnebenkosten</div>
+      <h1>Für welches Haus reicht mein Eigenkapital?</h1>
+    </div>
+  </header>
+  <Calculator client:visible lang="de" />
+</Base>

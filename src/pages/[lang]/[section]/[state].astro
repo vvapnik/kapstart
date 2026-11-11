@@ -1,0 +1,120 @@
+---
+// State page: 3 languages × 16 states, URL /{lang}/{localized section}/{state slug}/.
+// Numbers come from src/core (rates.json, calc.ts); prose and FAQ from
+// src/content/states/{lang}/{slug}.md.
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import CapitalTable from "../../../components/CapitalTable.astro";
+import { totalPct } from "../../../core/calc";
+import { RATES, STATES, getState, type Lang, type StateCode } from "../../../core/rates";
+import { LANGS, SECTION, STATE_SLUG, formatters, homePath, statePath, t } from "../../../i18n";
+import { getStatePage } from "../../../lib/content";
+
+export const getStaticPaths = (() =>
+  LANGS.flatMap((lang) =>
+    STATES.map((st) => ({
+      params: { lang, section: SECTION[lang], state: STATE_SLUG[st.code] },
+      props: { code: st.code },
+    })),
+  )) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as Lang;
+const { code } = Astro.props as { code: StateCode };
+const st = getState(code);
+const s = t(lang).site;
+const { pct, date } = formatters(lang);
+const entry = await getStatePage(lang, code);
+const { Content } = await render(entry);
+const alternates = Object.fromEntries(LANGS.map((l) => [l, statePath(l, code)])) as Record<Lang, string>;
+const history = [...st.grestHistory].reverse();
+const others = STATES.filter((o) => o.code !== code).sort((a, b) =>
+  a.name[lang].localeCompare(b.name[lang], t(lang).calc.loc),
+);
+const sources = [RATES.sources.grest, RATES.sources.grestHistory, RATES.sources.broker, RATES.sources.notary];
+---
+<Base lang={lang} title={entry.data.title} description={entry.data.description} alternates={alternates} xDefault={statePath("de", code)}>
+  <header class="site">
+    <div>
+      <div class="eyebrow">{st.name[lang]} · <span class="stand">{s.stand}</span></div>
+      <h1>{entry.data.h1}</h1>
+      <p class="lead">{entry.data.lead}</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>{s.rateHeading}</h2>
+    <div class="stats">
+      <div class="stat"><span class="muted">{s.rateCurrent}</span><strong class="num">{pct(st.grestPct)}</strong><span class="muted">{s.rateSince} {date(st.grestSince)}</span></div>
+      <div class="stat"><span class="muted">{s.costsTotal}, {s.costsWithout}</span><strong class="num">{pct(totalPct(code, { withBroker: false }))}</strong></div>
+      <div class="stat"><span class="muted">{s.costsTotal}, {s.costsWith}</span><strong class="num">{pct(totalPct(code, { withBroker: true }))}</strong></div>
+    </div>
+    <h3>{s.historyHeading}</h3>
+    <div class="tbl">
+      <table class="data">
+        <thead><tr><th scope="col">{s.historyFrom}</th><th scope="col">{s.historyRate}</th></tr></thead>
+        <tbody>
+          {history.map((h) => <tr><td class="num">{date(h.since)}</td><td class="num">{pct(h.pct)}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>{s.brokerHeading}</h2>
+    <div class="tbl">
+      <table class="data">
+        <tbody>
+          <tr><th scope="row">{s.brokerTotal}</th><td class="num">{pct(st.brokerTotalPct)}</td></tr>
+          <tr><th scope="row">{s.brokerBuyer}</th><td class="num">{pct(st.brokerBuyerPct)}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{s.brokerText}</p>
+    {st.brokerNote && <p class="muted" lang="de">{st.brokerNote}</p>}
+  </section>
+
+  <section>
+    <h2>{s.costsHeading}</h2>
+    <div class="tbl">
+      <table class="data">
+        <thead><tr><th scope="col"></th><th scope="col">{s.costsWithout}</th><th scope="col">{s.costsWith}</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Grunderwerbsteuer</th><td class="num">{pct(st.grestPct)}</td><td class="num">{pct(st.grestPct)}</td></tr>
+          <tr><th scope="row">{s.notary}</th><td class="num">{pct(st.notaryPct)}</td><td class="num">{pct(st.notaryPct)}</td></tr>
+          <tr><th scope="row">{t(lang).calc.makler}</th><td class="num">—</td><td class="num">{pct(st.brokerBuyerPct)}</td></tr>
+          <tr class="sum"><th scope="row">{s.costsTotal}</th><td class="num">{pct(totalPct(code, { withBroker: false }))}</td><td class="num">{pct(totalPct(code, { withBroker: true }))}</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>{s.tableHeading}</h2>
+    <p class="muted">{s.tableLead}</p>
+    <CapitalTable lang={lang} code={code} />
+    <p><a class="cta" href={homePath(lang)}>{s.calcCta} →</a></p>
+  </section>
+
+  <section class="prose"><Content /></section>
+
+  <section>
+    <h2>{s.faqHeading}</h2>
+    <div class="faq">
+      {entry.data.faq.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+    </div>
+  </section>
+
+  <section>
+    <h2>{s.otherStates}</h2>
+    <ul class="states">
+      {others.map((o) => <li><a href={statePath(lang, o.code)}>{o.name[lang]}</a></li>)}
+    </ul>
+  </section>
+
+  <footer class="note">
+    <p>{s.checked} {date(RATES.checked)}. {s.disclaimer}</p>
+    <p>{s.sources}:</p>
+    <ul>{sources.map((src) => <li><a href={src.url} rel="nofollow noopener">{src.title}</a> ({date(src.asOf)})</li>)}</ul>
+  </footer>
+</Base>

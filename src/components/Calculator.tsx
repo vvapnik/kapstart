@@ -6,7 +6,7 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { variants, type BrokerFilter } from "../core/calc";
 import { STATES, type Lang, type StateCode } from "../core/rates";
-import { CALCULATOR_STRINGS } from "./calculator.strings";
+import type { CalculatorStrings } from "../i18n";
 
 export const DEFAULT_CAPITAL = 50_000;
 const DEFAULT_NOTARY = "2";
@@ -38,11 +38,12 @@ function clampCapital(n: number): number {
 
 interface Props {
   lang: Lang;
+  /** Only this language's strings are passed, so the island ships one language. */
+  strings: CalculatorStrings;
   defaultCapital?: number;
 }
 
-export default function Calculator({ lang, defaultCapital = DEFAULT_CAPITAL }: Props) {
-  const t = CALCULATOR_STRINGS[lang];
+export default function Calculator({ lang, strings: t, defaultCapital = DEFAULT_CAPITAL }: Props) {
   // Narrow no-break spaces (ru, fr…) render inconsistently; use a plain no-break space.
   const nf = (n: number, o?: Intl.NumberFormatOptions) =>
     n.toLocaleString(t.loc, o).replace(/ /g, " ");

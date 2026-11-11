@@ -1,0 +1,36 @@
+---
+// Start page per language: calculator, intro text and links to the 16 state pages.
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Calculator from "../../components/Calculator";
+import { STATES, type Lang } from "../../core/rates";
+import { LANGS, homePath, statePath, t } from "../../i18n";
+import { getPage } from "../../lib/content";
+
+export const getStaticPaths = (() => LANGS.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const lang = Astro.params.lang as Lang;
+const s = t(lang);
+const page = await getPage(lang, "index");
+const { Content } = await render(page);
+const alternates = Object.fromEntries(LANGS.map((l) => [l, homePath(l)])) as Record<Lang, string>;
+const states = [...STATES].sort((a, b) => a.name[lang].localeCompare(b.name[lang], s.calc.loc));
+---
+<Base lang={lang} title={page.data.title} description={page.data.description} alternates={alternates} xDefault={homePath("de")}>
+  <header class="site">
+    <div>
+      <div class="eyebrow">{page.data.eyebrow} · <span class="stand">{s.site.stand}</span></div>
+      <h1>{page.data.h1}</h1>
+    </div>
+  </header>
+  <Calculator client:visible lang={lang} strings={s.calc} />
+  <section class="prose"><Content /></section>
+  <section>
+    <h2>{s.site.statesHeading}</h2>
+    <p class="muted">{s.site.statesLead}</p>
+    <ul class="states">
+      {states.map((st) => <li><a href={statePath(lang, st.code)}>{st.name[lang]}</a></li>)}
+    </ul>
+  </section>
+</Base>

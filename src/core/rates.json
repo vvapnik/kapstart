@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-06",
+  "checked": "2026-11-11",
   "sources": {
     "grest": {
       "title": "Deutsches Notarinstitut: Aktuelle Grunderwerbsteuersätze",
@@ -15,6 +15,11 @@
       "title": "Baufi24: Maklerprovision nach Bundesländern (übliche Gesamtprovision inkl. MwSt., Käuferanteil bei Teilung nach § 656c BGB)",
       "url": "https://www.baufi24.de/immobilien/maklerprovision-in-deutschland-mit-uebersicht-nach-bundeslaendern/",
       "asOf": "2026-04-28"
+    },
+    "grestHistory": {
+      "title": "Landesgesetze über den Steuersatz bei der Grunderwerbsteuer (Art. 105 Abs. 2a GG); bundeseinheitlich 3,5 % seit 1997",
+      "url": "https://de.wikipedia.org/wiki/Grunderwerbsteuer_(Deutschland)#Steuersatz",
+      "asOf": "2026-11-11"
     }
   },
   "states": [
@@ -27,6 +32,16 @@
       },
       "grestPct": 5.0,
       "grestSince": "2011-11-05",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-11-05",
+          "pct": 5.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -39,7 +54,13 @@
         "ru": "Бавария"
       },
       "grestPct": 3.5,
-      "grestSince": "1998-01-01",
+      "grestSince": "1997-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -53,6 +74,24 @@
       },
       "grestPct": 6.0,
       "grestSince": "2014-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2007-01-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2012-04-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2014-01-01",
+          "pct": 6.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -66,6 +105,20 @@
       },
       "grestPct": 6.5,
       "grestSince": "2015-07-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-01-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2015-07-01",
+          "pct": 6.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -79,6 +132,24 @@
       },
       "grestPct": 5.5,
       "grestSince": "2025-07-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-01-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2014-01-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2025-07-01",
+          "pct": 5.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 5.95,
       "brokerBuyerPct": 2.98
@@ -92,6 +163,20 @@
       },
       "grestPct": 5.5,
       "grestSince": "2023-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2009-01-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2023-01-01",
+          "pct": 5.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 6.25,
       "brokerBuyerPct": 3.12
@@ -105,6 +190,20 @@
       },
       "grestPct": 6.0,
       "grestSince": "2014-08-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2013-01-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2014-08-01",
+          "pct": 6.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 5.95,
       "brokerBuyerPct": 2.98
@@ -118,6 +217,20 @@
       },
       "grestPct": 6.0,
       "grestSince": "2019-07-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2012-07-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2019-07-01",
+          "pct": 6.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 5.95,
       "brokerBuyerPct": 2.98
@@ -131,6 +244,20 @@
       },
       "grestPct": 5.0,
       "grestSince": "2014-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-01-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2014-01-01",
+          "pct": 5.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57,
@@ -145,6 +272,20 @@
       },
       "grestPct": 6.5,
       "grestSince": "2015-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-10-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2015-01-01",
+          "pct": 6.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -158,6 +299,16 @@
       },
       "grestPct": 5.0,
       "grestSince": "2012-03-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2012-03-01",
+          "pct": 5.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -171,6 +322,28 @@
       },
       "grestPct": 6.5,
       "grestSince": "2015-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-01-01",
+          "pct": 4.0
+        },
+        {
+          "since": "2012-01-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2013-01-01",
+          "pct": 5.5
+        },
+        {
+          "since": "2015-01-01",
+          "pct": 6.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -184,6 +357,16 @@
       },
       "grestPct": 5.5,
       "grestSince": "2023-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2023-01-01",
+          "pct": 5.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -197,6 +380,20 @@
       },
       "grestPct": 5.0,
       "grestSince": "2012-03-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2010-03-01",
+          "pct": 4.5
+        },
+        {
+          "since": "2012-03-01",
+          "pct": 5.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -210,6 +407,20 @@
       },
       "grestPct": 6.5,
       "grestSince": "2014-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2012-01-01",
+          "pct": 5.0
+        },
+        {
+          "since": "2014-01-01",
+          "pct": 6.5
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57
@@ -223,6 +434,24 @@
       },
       "grestPct": 5.0,
       "grestSince": "2024-01-01",
+      "grestHistory": [
+        {
+          "since": "1997-01-01",
+          "pct": 3.5
+        },
+        {
+          "since": "2011-04-07",
+          "pct": 5.0
+        },
+        {
+          "since": "2017-01-01",
+          "pct": 6.5
+        },
+        {
+          "since": "2024-01-01",
+          "pct": 5.0
+        }
+      ],
       "notaryPct": 2.0,
       "brokerTotalPct": 7.14,
       "brokerBuyerPct": 3.57

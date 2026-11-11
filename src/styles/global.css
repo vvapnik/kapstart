@@ -302,3 +302,56 @@ summary { cursor: pointer; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .fill { transition: none; }
 }
+
+/* --- Content pages ------------------------------------------------------ */
+nav.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { font-family: var(--f-display); font-weight: 700; color: var(--fg); text-decoration: none; }
+a { color: var(--accent); }
+h2 { font-family: var(--f-display); font-size: 20px; line-height: 1.3; margin: 8px 0 10px; }
+h3 { font-size: 15px; margin: 16px 0 8px; }
+section > p, .prose p, .prose li { max-width: 68ch; }
+.lead { margin: 10px 0 0; max-width: 68ch; font-size: 16px; }
+.muted { color: var(--muted); }
+.stand {
+  font-family: var(--f-mono);
+  letter-spacing: 0.02em;
+  background: var(--accent-soft);
+  color: var(--fg);
+  padding: 1px 6px;
+  border-radius: var(--radius-s);
+}
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 8px; }
+.stat {
+  display: grid; gap: 2px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-m);
+  padding: 12px 14px; font-size: 13px;
+}
+.stat strong { font-size: 26px; font-weight: 600; color: var(--fg); }
+.tbl { overflow-x: auto; }
+table.data {
+  border-collapse: collapse; width: 100%; max-width: 560px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-m);
+}
+table.data th, table.data td { padding: 7px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+table.data td.num, table.data th.num { text-align: right; white-space: nowrap; }
+table.data thead th { font-size: 12px; color: var(--muted); font-weight: 600; }
+table.data tbody th { font-weight: 500; }
+table.data tr:last-child > * { border-bottom: 0; }
+table.data tr.sum > * { font-weight: 700; }
+.faq { display: grid; gap: 8px; }
+.faq details p { margin: 10px 0 0; max-width: 68ch; }
+.states { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.states a {
+  display: inline-block; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--fg); text-decoration: none; font-size: 14px;
+}
+.states a:hover { border-color: var(--accent); }
+.cta { font-weight: 600; }
+footer.note ul { padding-left: 18px; margin: 4px 0 0; }
+footer.note p { margin: 0 0 4px; }
+.pick { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.pick a {
+  display: grid; gap: 4px; padding: 16px; text-decoration: none; color: var(--fg);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-m);
+}
+.pick a:hover { border-color: var(--accent); }

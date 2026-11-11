@@ -17,6 +17,8 @@ export interface StateRates {
   grestPct: number;
   /** Date the current GrESt rate took effect (ISO). */
   grestSince: string;
+  /** All rates since the uniform 3.5 % of 1997, oldest first; the last one is current. */
+  grestHistory: { since: string; pct: number }[];
   /** Notary + land registry, % of the price (estimate). */
   notaryPct: number;
   /** Customary total broker commission incl. VAT, %. */
@@ -37,7 +39,7 @@ export interface Source {
 export interface Rates {
   /** Date the data was last checked against the sources (ISO). */
   checked: string;
-  sources: { grest: Source; notary: Source; broker: Source };
+  sources: { grest: Source; grestHistory: Source; notary: Source; broker: Source };
   states: StateRates[];
 }
 

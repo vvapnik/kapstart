@@ -50,6 +50,18 @@ describe("rates.json", () => {
     }
   });
 
+  it("has a GrESt history that ends with the current rate", () => {
+    for (const s of STATES) {
+      const h = s.grestHistory;
+      expect(h[0], s.code).toEqual({ since: "1997-01-01", pct: 3.5 });
+      expect(h.at(-1), s.code).toEqual({ since: s.grestSince, pct: s.grestPct });
+      for (let i = 1; i < h.length; i++) {
+        expect(h[i].since > h[i - 1].since, s.code).toBe(true);
+        expect(h[i].pct, s.code).not.toBe(h[i - 1].pct);
+      }
+    }
+  });
+
   it("names a source with a date for every kind of rate", () => {
     expect(RATES.checked).toMatch(isoDate);
     for (const src of Object.values(RATES.sources)) {

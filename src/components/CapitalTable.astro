@@ -1,0 +1,31 @@
+---
+// Static "capital → maximum price" table for one state, computed at build time by core.
+import { maxPrice } from "../core/calc";
+import type { Lang, StateCode } from "../core/rates";
+import { formatters, t } from "../i18n";
+
+interface Props {
+  lang: Lang;
+  code: StateCode;
+}
+const { lang, code } = Astro.props;
+const s = t(lang).site;
+const { eur } = formatters(lang);
+const CAPITALS = [10_000, 20_000, 30_000, 40_000, 50_000, 75_000, 100_000];
+---
+<div class="tbl">
+  <table class="data">
+    <thead>
+      <tr><th scope="col">{s.tableCapital}</th><th scope="col">{s.costsWithout}</th><th scope="col">{s.costsWith}</th></tr>
+    </thead>
+    <tbody>
+      {CAPITALS.map((c) => (
+        <tr>
+          <th scope="row" class="num">{eur(c)}</th>
+          <td class="num">{eur(maxPrice(c, code, { withBroker: false }))}</td>
+          <td class="num">{eur(maxPrice(c, code, { withBroker: true }))}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

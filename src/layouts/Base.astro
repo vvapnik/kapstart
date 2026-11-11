@@ -1,18 +1,31 @@
 ---
 // Page shell. Fonts are bundled from npm (@fontsource-variable) and served from our own
 // domain: no requests to fonts.googleapis.com or any other third party.
+//
+// hreflang: every page passes `alternates` (one path per v1 language) and `xDefault`;
+// the <link rel="alternate"> tags and the language switch are generated from them.
+// The switch is plain links; the root / always redirects to /de/, never by Accept-Language.
 import "@fontsource-variable/golos-text";
 import "@fontsource-variable/unbounded";
 import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
 import type { Lang } from "../core/rates";
+import { LANGS, homePath, t } from "../i18n";
 
 interface Props {
   lang: Lang;
   title: string;
   description?: string;
+  /** Path of this page in every v1 language. */
+  alternates: Record<Lang, string>;
+  /** Path for hreflang="x-default". */
+  xDefault: string;
 }
-const { lang, title, description } = Astro.props;
+const { lang, title, description, alternates, xDefault } = Astro.props;
+const site = Astro.site!;
+const abs = (path: string) => new URL(path, site).href;
+const canonical = abs(Astro.url.pathname);
+const LABEL: Record<Lang, string> = { de: "DE", en: "EN", ru: "RU" };
 ---
 <!doctype html>
 <html lang={lang}>
@@ -21,11 +34,28 @@ const { lang, title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={l} href={abs(alternates[l])} />)}
+    <link rel="alternate" hreflang="x-default" href={abs(xDefault)} />
     <meta name="theme-color" content="#f3f6f4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#101513" media="(prefers-color-scheme: dark)" />
   </head>
   <body>
     <div class="wrap">
+      <nav class="top">
+        <a class="brand" href={homePath(lang)}>Kapstart</a>
+        <div class="seg lang" aria-label={t(lang).site.langSwitch}>
+          {LANGS.map((l) => (
+            <a
+              href={alternates[l]}
+              hreflang={l}
+              lang={l}
+              title={t(l).site.langName}
+              aria-current={l === lang ? "page" : undefined}
+            >{LABEL[l]}</a>
+          ))}
+        </div>
+      </nav>
       <slot />
     </div>
   </body>
